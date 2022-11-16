@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+  app:
+#    build: .
+    ports:
+      - 8000:8000
+    image: binhphanvan/goshipdemo:latest
+    container_name: backend_drf_container
+    restart: always
+    env_file:
+      - ./docker.env
+    command: bash -c "python3 manage.py collectstatic --noinput && python3 manage.py migrate --noinput && gunicorn core.wsgi -b 0.0.0.0:8000"
