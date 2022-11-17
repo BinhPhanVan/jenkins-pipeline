@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage("clone") {
       steps {
-        sh "git clone https://github.com/BinhPhanVan/jenkins-pipeline"
+//         sh "git clone https://github.com/BinhPhanVan/jenkins-pipeline"
         sh "docker build . -t testing"
         sh "docker run -p 7009:8000 testing"
       }
