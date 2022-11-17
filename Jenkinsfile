@@ -15,6 +15,7 @@ pipeline {
       }
     }
   }
+  
 
 //   stages {
 //     stage("build image backend") {
