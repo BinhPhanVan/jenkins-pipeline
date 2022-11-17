@@ -1,6 +1,6 @@
 pipeline {
 
-  agent none
+  agent any
 
   environment {
     DOCKER_IMAGE_BACKEND = "binhphanvan/goshipdemo"
@@ -8,7 +8,7 @@ pipeline {
 
   stages {
     stage("build image backend") {
-      agent { node {label 'master'}}
+//       agent { node {label 'master'}}
       environment {
         DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${GIT_COMMIT.substring(0,7)}"
       }
